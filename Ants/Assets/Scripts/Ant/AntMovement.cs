@@ -18,11 +18,11 @@ public class AntMovement
         SteeringAgent.Init(rb);
     }
 
-    public void Move(ref Bounds bounds)
+    public void Move()
     {
         if (ant.Energy < moveCost) return;
-
-        if (bounds.Contains(myTransform.position))
+        
+        if (ant.world.bounds.Contains(myTransform.position))
         {
             ant.Energy -= moveCost * Time.deltaTime;
 
@@ -30,8 +30,14 @@ public class AntMovement
         }
         else
         {
-            SteeringAgent.Seek(bounds.center);
+            SteeringAgent.Seek(ant.world.bounds.center);
             SteeringAgent.ReverseDirection();
         }
+    }
+    
+    public void MoveToTarget(Vector3 target)
+    {
+        if (ant.Energy < moveCost) return;
+        SteeringAgent.Seek(target);
     }
 }

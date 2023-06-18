@@ -9,7 +9,7 @@ public class FoodManager : MonoBehaviour
 
     public Food foodPrefab;
 
-    public Dictionary<Food, Food> foods;
+    public Dictionary<Food, Food> Foods;
 
     public int foodCapacity;
 
@@ -18,7 +18,7 @@ public class FoodManager : MonoBehaviour
 
     private void Start()
     {
-        foods = new Dictionary<Food, Food>();
+        Foods = new Dictionary<Food, Food>();
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class FoodManager : MonoBehaviour
 
     private void Spawn()
     {
-        if (foods.Count >= foodCapacity) return;
+        if (Foods.Count >= foodCapacity) return;
         var pos = new Vector3
         {
             x = Random.Range(-world.bounds.extents.x, world.bounds.extents.x),
@@ -39,12 +39,12 @@ public class FoodManager : MonoBehaviour
         food.OnDestroyEvent += Remove;
         food.Init(Random.Range(foodMinEnergy, foodMaxEnergy));
 
-        foods.Add(food, food);
+        Foods.Add(food, food);
     }
 
     private void Remove(Food food)
     {
         food.OnDestroyEvent -= Remove;
-        foods.Remove(food);
+        Foods.Remove(food);
     }
 }

@@ -30,6 +30,7 @@ public class SteeringAgent
         rb.AddForce(steeringForce);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, MaxSpeed);
         rb.transform.right = rb.velocity;
+
     }
 
     public void Wander()

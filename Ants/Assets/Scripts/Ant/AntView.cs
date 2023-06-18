@@ -3,16 +3,17 @@
 [System.Serializable]
 public class AntView
 {
-    private Dictionary<VisibleObject, VisibleObject> objectInView;
+    public HashSet<VisibleObject> objectInView;
+    // public Dictionary<VisibleObject, VisibleObject> objectInView;
 
     public AntView()
     {
-        objectInView = new Dictionary<VisibleObject, VisibleObject>();
+        objectInView = new HashSet<VisibleObject>();
     }
 
     public void AddObjectToView(VisibleObject visibleObject)
     {
-        objectInView.Add(visibleObject, visibleObject);
+        objectInView.Add(visibleObject);
     }
 
     public void RemoveObjectFromView(VisibleObject visibleObject)

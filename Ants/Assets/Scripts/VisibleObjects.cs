@@ -2,10 +2,10 @@ using UnityEngine;
 
 public abstract class VisibleObject : MonoBehaviour
 {
-
+    public ObjectType objectType;
 }
 
-enum ObjectType
+public enum ObjectType
 {
     Food,
     Pheromone,
