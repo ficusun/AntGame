@@ -130,7 +130,7 @@ Transform:
   - {fileID: 6288185992590882127}
   - {fileID: 137155992782890634}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5580337359812562932
 SpriteRenderer:
@@ -264,12 +264,13 @@ MonoBehaviour:
   visionCollider: {fileID: 6579368024138733798}
   movement:
     moveCost: 0
-    steeringAgent:
-      <MaxSpeed>k__BackingField: 1
+    <SteeringAgent>k__BackingField:
+      <MaxSpeed>k__BackingField: 2
       <MaxForce>k__BackingField: 5
       <AngleChange>k__BackingField: 25
       <AngleChangeRate>k__BackingField: 1
       <WanderRadius>k__BackingField: 1
+      theta: 0
   pheromoneSpawner:
     pheromonePrefab: {fileID: 1533448639770747404, guid: b9ada99b664d446f08e993d7a3f21eee, type: 3}
     pheromoneDistance: 123123540
@@ -280,6 +281,7 @@ MonoBehaviour:
     CapacityLoad: 0
   <Energy>k__BackingField: 55
   <CurrentLoad>k__BackingField: 0
+  debug: 1
 --- !u!1 &5514853271589928338
 GameObject:
   m_ObjectHideFlags: 0

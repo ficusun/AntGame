@@ -612,45 +612,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: angle
-      value: 87.414696
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
       propertyPath: world
       value: 
       objectReference: {fileID: 101911355}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.<SteeringAgent>k__BackingField.theta
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.steeringAgent.<AngleChange>k__BackingField
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.<SteeringAgent>k__BackingField.<MaxForce>k__BackingField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.<SteeringAgent>k__BackingField.<MaxSpeed>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.<SteeringAgent>k__BackingField.<AngleChange>k__BackingField
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.<SteeringAgent>k__BackingField.<WanderRadius>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142020488270788081, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
-      propertyPath: movement.<SteeringAgent>k__BackingField.<AngleChangeRate>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5022225584133207298, guid: b469bd673f5784f5f9396dc17b986447, type: 3}
       propertyPath: m_Name
       value: Ant

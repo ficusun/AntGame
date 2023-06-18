@@ -18,8 +18,6 @@ public class Ant : MonoBehaviour
 
     public bool debug;
 
-    public float testAngle;
-
     private void Awake()
     {
         antView = new AntView();
@@ -32,9 +30,6 @@ public class Ant : MonoBehaviour
     {
         movement.Move(ref world.bounds);
         pheromoneSpawner.TrySpawn();
-
-        var direction = world.bounds.center - transform.position;
-        testAngle = Vector3.Angle(direction, transform.right);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,13 +48,12 @@ public class Ant : MonoBehaviour
 
         Handles.color = Color.red;
         var point = transform.position + transform.right;
-        Handles.DrawLine(transform.position, point);
-        Handles.DrawSolidDisc(point, Vector3.back, 0.1f);
         Handles.DrawWireDisc(point, Vector3.back, steeringAgent.WanderRadius);
 
         var wanderPoint = steeringAgent.CalculateWanderPoint(point);
+        Handles.DrawLine(transform.position, wanderPoint);
 
-        Handles.DrawWireDisc(wanderPoint, Vector3.back, 0.1f);
+        Handles.DrawSolidDisc(wanderPoint, Vector3.back, 0.1f);
     }
 }
 
