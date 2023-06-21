@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Systems
 {
-    public partial struct AntPheromoneSystem : ISystem
+    public partial struct AntPheromoneSpawnSystem : ISystem
     {
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
@@ -19,11 +19,6 @@ namespace Systems
             {
                 ecb = ecb,
                 dt = SystemAPI.Time.DeltaTime,
-            }.ScheduleParallel();
-
-            new PheromoneLifeCycleJob
-            {
-                dt = SystemAPI.Time.DeltaTime
             }.ScheduleParallel();
         }
 
@@ -42,17 +37,6 @@ namespace Systems
                     var entity = ecb.Instantiate(pheromoneSpawnerData.Prefab);
                     ecb.SetComponent(entity, LocalTransform.FromPosition(antRigidBody.Position));
                 }
-            }
-        }
-        
-        [BurstCompile]
-        public partial struct PheromoneLifeCycleJob : IJobEntity
-        {
-            public float dt;
-
-            public void Execute(ref PheromoneData pheromoneData)
-            {
-                pheromoneData.Power -= dt;
             }
         }
     }

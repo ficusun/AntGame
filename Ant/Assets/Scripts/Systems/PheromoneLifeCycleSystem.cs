@@ -1,26 +1,26 @@
 using Unity.Burst;
 using Unity.Entities;
 
-namespace Systems
+public partial struct PheromoneLifeCycleSystem : ISystem
 {
-    public partial struct PheromoneLifeCycleSystem : ISystem
+    [BurstCompile]
+    public void OnUpdate(ref SystemState state)
     {
-        [BurstCompile]
-        public void OnCreate(ref SystemState state)
+        new PheromoneLifeCycleJob
         {
-            
-        }
+            dt = SystemAPI.Time.DeltaTime
+        }.ScheduleParallel();
+    }
 
-        [BurstCompile]
-        public void OnUpdate(ref SystemState state)
+    [BurstCompile]
+    public partial struct PheromoneLifeCycleJob : IJobEntity
+    {
+        public float dt;
+
+        public void Execute(ref PheromoneData pheromoneData)
         {
-
-        }
-
-        [BurstCompile]
-        public void OnDestroy(ref SystemState state)
-        {
-
+            pheromoneData.Power -= dt;
+            // if (pheromoneData.power <= 0f) Destroy(gameObject);
         }
     }
 }

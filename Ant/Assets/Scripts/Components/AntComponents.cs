@@ -60,7 +60,7 @@ public struct AntSearching : IComponentData, IEnableableComponent
 }
 
 [System.Serializable]
-public struct AntPheromoneData : IComponentData
+public struct AntPheromoneSpawnerData : IComponentData
 {
     public float Distance;
 

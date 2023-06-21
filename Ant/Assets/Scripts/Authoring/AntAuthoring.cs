@@ -2,6 +2,8 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
 
+using UnityEngine.Serialization;
+
 using Random = Unity.Mathematics.Random;
 
 public class AntAuthoring : MonoBehaviour
@@ -20,7 +22,7 @@ public class AntAuthoring : MonoBehaviour
     
     public GameObject PheromonePrefab;
     
-    public AntPheromoneData antPheromoneData;
+    [FormerlySerializedAs("antPheromoneData")] public AntPheromoneSpawnerData antPheromoneSpawnerData;
     public class AntBaker : Baker<AntAuthoring>
     {
         public override void Bake(AntAuthoring authoring)
@@ -39,8 +41,8 @@ public class AntAuthoring : MonoBehaviour
             authoring.antSearching.Random = new Unity.Mathematics.Random(3);
             AddComponent(entity, authoring.antSearching);
             
-            authoring.antPheromoneData.Prefab = GetEntity(authoring.PheromonePrefab, TransformUsageFlags.Dynamic);
-            AddComponent(entity, authoring.antPheromoneData);
+            authoring.antPheromoneSpawnerData.Prefab = GetEntity(authoring.PheromonePrefab, TransformUsageFlags.Dynamic);
+            AddComponent(entity, authoring.antPheromoneSpawnerData);
         }
     }
 }

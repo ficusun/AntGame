@@ -1,7 +1,9 @@
 using Unity.Entities;
 
+using UnityEngine;
 
-public struct PheromoneComponents : IComponentData
+
+public struct PheromoneData : IComponentData
 {
     public float Power;
 }
