@@ -255,7 +255,7 @@ MonoBehaviour:
     LowEnergyAlarm: 0
   MovementStat:
     MoveCost: 0.01
-    MaxSpeed: 5
+    MaxSpeed: 0
     MaxForce: 10
   antSearching:
     AngleChange: 35
@@ -268,6 +268,74 @@ MonoBehaviour:
   PheromonePrefab: {fileID: 7019787602362784315, guid: 0c1f6e85e357149d5a9c5237d348159f,
     type: 3}
   pheromoneSpawnDistance: 3
+  VisionRadius: 3.5
+  VisionOffset: 3.75
+  belongsTo:
+    Category00: 1
+    Category01: 0
+    Category02: 0
+    Category03: 0
+    Category04: 0
+    Category05: 0
+    Category06: 0
+    Category07: 0
+    Category08: 0
+    Category09: 0
+    Category10: 0
+    Category11: 0
+    Category12: 0
+    Category13: 0
+    Category14: 0
+    Category15: 0
+    Category16: 0
+    Category17: 0
+    Category18: 0
+    Category19: 0
+    Category20: 0
+    Category21: 0
+    Category22: 0
+    Category23: 0
+    Category24: 0
+    Category25: 0
+    Category26: 0
+    Category27: 0
+    Category28: 0
+    Category29: 0
+    Category30: 0
+    Category31: 0
+  collidesWith:
+    Category00: 0
+    Category01: 1
+    Category02: 1
+    Category03: 0
+    Category04: 0
+    Category05: 0
+    Category06: 0
+    Category07: 0
+    Category08: 0
+    Category09: 0
+    Category10: 0
+    Category11: 0
+    Category12: 0
+    Category13: 0
+    Category14: 0
+    Category15: 0
+    Category16: 0
+    Category17: 0
+    Category18: 0
+    Category19: 0
+    Category20: 0
+    Category21: 0
+    Category22: 0
+    Category23: 0
+    Category24: 0
+    Category25: 0
+    Category26: 0
+    Category27: 0
+    Category28: 0
+    Category29: 0
+    Category30: 0
+    Category31: 0
 --- !u!1 &4860445426552444442
 GameObject:
   m_ObjectHideFlags: 0

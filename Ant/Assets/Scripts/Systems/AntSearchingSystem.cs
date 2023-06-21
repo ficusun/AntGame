@@ -22,9 +22,29 @@ namespace Systems
         {
             public float dt;
 
-            public void Execute(ref Ant ant, AntSearchingAspect searchingAspect)
+            public void Execute(ref Ant ant, AntSearchingAspect searchingAspect, in DynamicBuffer<VisionBuffer> visionBuffer)
             {
-                ant.TargetPosition = searchingAspect.Wander(dt);
+                if (visionBuffer.IsEmpty)
+                {
+                    ant.TargetPosition = searchingAspect.Wander(dt);
+                }
+                else
+                {
+                    var float power = 0;
+                    foreach (var obj in visionBuffer)
+                    {
+                        if obj.typeOf == 0
+                        {   
+                            // call obj.Entity to have Power
+                            if obj.Entity.power > power
+                            {
+                                power = obj.Entity.power;
+                                ant.TargetPosition = obj.pos
+                            }
+                        }
+                    }
+                }
+                
             }
         }
     }

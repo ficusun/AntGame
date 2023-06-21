@@ -1,5 +1,6 @@
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Physics;
 
 using UnityEngine;
 
@@ -68,4 +69,26 @@ public struct AntPheromoneSpawnerData : IComponentData
 
     public float3 LastPheromonePosition;
     public bool ToSpawn;
+}
+
+public struct Vision : IComponentData
+{
+    public float Radius;
+    public float Offset;
+    public CollisionFilter Layers;
+}
+
+public struct VisionBuffer : IBufferElementData
+{
+    public Entity Entity;
+
+    public float3 Pos;
+
+    public TypeOfEntity typeOf;
+}
+
+public enum TypeOfEntity
+{
+    food,
+    pheromone,
 }
