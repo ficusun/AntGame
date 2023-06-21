@@ -15,7 +15,7 @@ public struct Ant : IComponentData
 [System.Serializable]
 public struct AntStats : IComponentData
 {
-    
+
     public float MiningSpeed;
     public float MiningCost;
     public float CapacityLoad;
@@ -28,7 +28,7 @@ public struct AntSpawner : IComponentData
     public float AntMaxCount;
 
     public float3 StartPosition;
-    
+
     public Entity Prefab;
 
     public int AntPerTime;
@@ -62,11 +62,10 @@ public struct AntSearching : IComponentData, IEnableableComponent
 [System.Serializable]
 public struct AntPheromoneSpawnerData : IComponentData
 {
+    public Entity Prefab;
+
     public float Distance;
 
-    public bool ToSpawn;
-
     public float3 LastPheromonePosition;
-
-    public Entity Prefab;
+    public bool ToSpawn;
 }
