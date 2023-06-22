@@ -11,6 +11,8 @@ public struct Ant : IComponentData
     public float CurrentLoad;
 
     public float3 TargetPosition;
+
+    public Entity targetEntity;
 }
 
 [System.Serializable]
@@ -82,13 +84,14 @@ public struct VisionBuffer : IBufferElementData
 {
     public Entity Entity;
 
-    public float3 Pos;
+    public float3 TargetPosition;
 
-    public TypeOfEntity typeOf;
+    public TargetType targetType;
 }
 
-public enum TypeOfEntity
+public enum TargetType : byte
 {
-    food,
-    pheromone,
+    Ant = 1,
+    Food = 2,
+    Pheromone = 4
 }

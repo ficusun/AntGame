@@ -1,4 +1,5 @@
 using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 
@@ -13,13 +14,18 @@ namespace Systems
         {
             new SearchingJob
             {
+                pheromonLookup = SystemAPI.GetComponentLookup<PheromoneData>(true),
                 dt = SystemAPI.Time.DeltaTime,
+
             }.ScheduleParallel();
         }
 
         [BurstCompile]
         public partial struct SearchingJob : IJobEntity
         {
+            [ReadOnly]
+            public ComponentLookup<PheromoneData> pheromonLookup;
+
             public float dt;
 
             public void Execute(ref Ant ant, AntSearchingAspect searchingAspect, in DynamicBuffer<VisionBuffer> visionBuffer)
@@ -30,21 +36,34 @@ namespace Systems
                 }
                 else
                 {
-                    var float power = 0;
-                    foreach (var obj in visionBuffer)
+                    var pheromonePower = 0f;
+
+                    foreach (var targetData in visionBuffer)
                     {
-                        if obj.typeOf == 0
-                        {   
-                            // call obj.Entity to have Power
-                            if obj.Entity.power > power
-                            {
-                                power = obj.Entity.power;
-                                ant.TargetPosition = obj.pos
-                            }
+                        switch (targetData.targetType)
+                        {
+                            case TargetType.Ant: break;
+                            case TargetType.Food: break;
+                            case TargetType.Pheromone:
+
+                                FindPheromone(targetData, ref ant, ref pheromonePower);
+                                break;
                         }
                     }
                 }
-                
+
+            }
+
+            private void FindPheromone(in VisionBuffer targetData, ref Ant ant, ref float maxPowerSoFar)
+            {
+                var pheromonePower = pheromonLookup[targetData.Entity].Power;
+
+                if (pheromonePower > maxPowerSoFar)
+                {
+                    maxPowerSoFar = pheromonePower;
+                    ant.TargetPosition = targetData.TargetPosition;
+                    ant.targetEntity = targetData.Entity;
+                }
             }
         }
     }

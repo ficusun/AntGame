@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CustomPhysicsMaterialTagNames
   m_EditorClassIdentifier: 
   m_TagNames:
-  - 
-  - 
-  - 
+  - Ant
+  - Food
+  - Pheromone
   - 
   - 
   - 

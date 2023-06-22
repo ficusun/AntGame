@@ -168,7 +168,7 @@ MonoBehaviour:
     m_CustomMaterialTags:
       m_Override: 0
       m_Value:
-        Tag00: 0
+        Tag00: 1
         Tag01: 0
         Tag02: 0
         Tag03: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
     LowEnergyAlarm: 0
   MovementStat:
     MoveCost: 0.01
-    MaxSpeed: 0
+    MaxSpeed: 5
     MaxForce: 10
   antSearching:
     AngleChange: 35

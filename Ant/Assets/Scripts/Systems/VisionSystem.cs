@@ -35,7 +35,7 @@ public partial struct VisionSystem : ISystem
         public void Execute(in LocalTransform transform, in Vision vision, ref DynamicBuffer<VisionBuffer> visionBuffer)
         {
             visionBuffer.Clear();
-            
+
             var input = new PointDistanceInput
             {
                 Filter = vision.Layers,
@@ -45,16 +45,16 @@ public partial struct VisionSystem : ISystem
 
             var result = new NativeList<DistanceHit>(Allocator.Temp);
             if (physicsWorld.CalculateDistance(input, ref result))
-            {   
-                var visionArray = visionBuffer.Reinterpret<Entity>();
-                
-                foreach (var obj in result)
+            {
+                foreach (var hit in result)
                 {
-                    visionArray.Add(obj.Entity);
-                    obj.Material.CustomTags
-                        
+                    visionBuffer.Add(new VisionBuffer
+                    {
+                        Entity = hit.Entity,
+                        TargetPosition = hit.Position,
+                        targetType = (TargetType)hit.Material.CustomTags
+                    }); 
                 }
-                //seeker.ElementAt(i).target = closet.Entity;
             }
 
         }
