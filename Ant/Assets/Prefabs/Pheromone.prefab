@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 916735351114543408}
   - component: {fileID: 363063476246434245}
   - component: {fileID: 7657094181134332857}
+  - component: {fileID: 7279193780785442276}
   m_Layer: 0
   m_Name: Pheromone
   m_TagString: Untagged
@@ -240,4 +241,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aedf51bd5d347a09f60be6a8a897a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Power: 80
+  Power: 500
+--- !u!114 &7279193780785442276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7019787602362784315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa55e621e7d7424f9f20c86b3d2d4f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 3

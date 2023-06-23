@@ -4,7 +4,6 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
-
 using UnityEngine.EventSystems;
 
 public partial struct VisionSystem : ISystem
@@ -12,6 +11,7 @@ public partial struct VisionSystem : ISystem
     [BurstCompile]
     public void OnCreate(ref SystemState state)
     {
+        state.RequireForUpdate<PhysicsWorldSingleton>();
 
     }
 
@@ -19,10 +19,13 @@ public partial struct VisionSystem : ISystem
     public void OnUpdate(ref SystemState state)
     {
         var physicsWorld = SystemAPI.GetSingleton<PhysicsWorldSingleton>();
-
+        //var lookUp = SystemAPI.GetComponentLookup<EntityType>();
+        
         new FindTargetJob
         {
-            physicsWorld = physicsWorld
+            physicsWorld = physicsWorld,
+            EntityTypeLookUp = SystemAPI.GetComponentLookup<EntityType>(),
+            
 
         }.ScheduleParallel();
     }
@@ -31,6 +34,8 @@ public partial struct VisionSystem : ISystem
     partial struct FindTargetJob : IJobEntity
     {
         [ReadOnly] public PhysicsWorldSingleton physicsWorld;
+
+        [ReadOnly] public ComponentLookup<EntityType> EntityTypeLookUp;
 
         public void Execute(in LocalTransform transform, in Vision vision, ref DynamicBuffer<VisionBuffer> visionBuffer)
         {
@@ -48,12 +53,15 @@ public partial struct VisionSystem : ISystem
             {
                 foreach (var hit in result)
                 {
-                    visionBuffer.Add(new VisionBuffer
+                    if (EntityTypeLookUp.HasComponent(hit.Entity))
                     {
-                        Entity = hit.Entity,
-                        TargetPosition = hit.Position,
-                        targetType = (TargetType)hit.Material.CustomTags
-                    }); 
+                        visionBuffer.Add(new VisionBuffer
+                        {
+                            Entity = hit.Entity,
+                            TargetPosition = hit.Position,
+                            targetType = EntityTypeLookUp[hit.Entity].Value,
+                        });
+                    }
                 }
             }
 

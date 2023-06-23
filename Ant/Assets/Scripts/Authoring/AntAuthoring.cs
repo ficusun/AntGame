@@ -47,6 +47,7 @@ public class AntAuthoring : MonoBehaviour
 
             // authoring.antSearching.Random = new Random(3);
             AddComponent(entity, authoring.antSearching);
+            SetComponentEnabled<AntSearching>(entity, false);
 
             AddComponent(entity, new AntPheromoneSpawnerData
             {

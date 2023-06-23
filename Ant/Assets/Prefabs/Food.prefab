@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2841700514341515306}
   - component: {fileID: -4863481237166730012}
   - component: {fileID: 5566350909897620234}
+  - component: {fileID: 8847141261352409578}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &487802298622483888
 MeshFilter:
@@ -241,3 +242,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Energy: 555
+--- !u!114 &8847141261352409578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470051806081805731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa55e621e7d7424f9f20c86b3d2d4f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 2

@@ -13,6 +13,8 @@ public struct Ant : IComponentData
     public float3 TargetPosition;
 
     public Entity targetEntity;
+
+    public TargetType TargetType;
 }
 
 [System.Serializable]
@@ -38,7 +40,7 @@ public struct AntSpawner : IComponentData
 }
 
 [System.Serializable]
-public struct AntMovementData : IComponentData, IEnableableComponent
+public struct AntMovementData : IComponentData
 {
     public float MoveCost;
 
@@ -63,7 +65,7 @@ public struct AntSearching : IComponentData, IEnableableComponent
 }
 
 [System.Serializable]
-public struct AntPheromoneSpawnerData : IComponentData
+public struct AntPheromoneSpawnerData : IComponentData, IEnableableComponent
 {
     public Entity Prefab;
 
@@ -87,11 +89,4 @@ public struct VisionBuffer : IBufferElementData
     public float3 TargetPosition;
 
     public TargetType targetType;
-}
-
-public enum TargetType : byte
-{
-    Ant = 1,
-    Food = 2,
-    Pheromone = 4
 }

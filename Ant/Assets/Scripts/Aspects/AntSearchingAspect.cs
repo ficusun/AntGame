@@ -13,6 +13,10 @@ public readonly partial struct AntSearchingAspect : IAspect
     readonly RigidBodyAspect antRigidBody;
     // readonly RefRW<Ant> ant;
     public ref AntSearching AntSearching => ref antSearching.ValueRW;
+
+    public readonly EnabledRefRW<AntSearching> IsActive;
+    // не нужный код
+    public float3 Position => antRigidBody.Position;
     
     public float3 Wander(float dt)
     {

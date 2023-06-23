@@ -136,6 +136,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AntSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6490369852667332734, guid: c1c38ec26d0c547c7994e0561f2b0f5b,
+        type: 3}
+      propertyPath: AntPerTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490369852667332734, guid: c1c38ec26d0c547c7994e0561f2b0f5b,
+        type: 3}
+      propertyPath: AntMaxCount
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7309754718360784828, guid: c1c38ec26d0c547c7994e0561f2b0f5b,
         type: 3}
       propertyPath: m_RootOrder

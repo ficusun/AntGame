@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2634092259148200034}
   - component: {fileID: 6144324974666225925}
   - component: {fileID: 8636201352943592564}
+  - component: {fileID: 4724483222687207005}
+  - component: {fileID: -6284591472398217132}
   m_Layer: 0
   m_Name: Ant
   m_TagString: Untagged
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002b5fc709b647bcb2e427e221577d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energy: 10
+  Energy: 20
   CurrentLoad: 0
   targetPos:
     x: 0
@@ -267,9 +269,9 @@ MonoBehaviour:
     theta: 0
   PheromonePrefab: {fileID: 7019787602362784315, guid: 0c1f6e85e357149d5a9c5237d348159f,
     type: 3}
-  pheromoneSpawnDistance: 3
+  pheromoneSpawnDistance: 2.5
   VisionRadius: 3.5
-  VisionOffset: 3.75
+  VisionOffset: 3.85
   belongsTo:
     Category00: 1
     Category01: 0
@@ -336,6 +338,31 @@ MonoBehaviour:
     Category29: 0
     Category30: 0
     Category31: 0
+--- !u!114 &4724483222687207005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637200305900457399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa55e621e7d7424f9f20c86b3d2d4f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 1
+--- !u!114 &-6284591472398217132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637200305900457399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71242163ba188c04b8b904b94ff79242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4860445426552444442
 GameObject:
   m_ObjectHideFlags: 0
